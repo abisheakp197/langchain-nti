@@ -3,7 +3,7 @@
 **Full 5-pillar post-quantum security for LangChain agents, powered by NTI (Neutral Trust Infrastructure).**
 
 [![PyPI](https://img.shields.io/pypi/v/langchain-nti.svg)](https://pypi.org/project/langchain-nti/)
-[![License: PolyForm Shield](https://img.shields.io/badge/License-PolyForm%20Shield-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue)](https://www.apache.org/licenses/LICENSE-2.0)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 
 ## Install
@@ -49,8 +49,7 @@ Autonomous LLM agents are prone to prompt injection, hallucinated function calls
 
 ## License
 
-PolyForm Shield License 1.0.0. Source-available.
-Free for all non-competing use. See LICENSE.
+Apache License 2.0. See LICENSE.
 
 ## Links
 
