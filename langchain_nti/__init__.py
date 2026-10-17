@@ -9,7 +9,7 @@ This package enforces all 5 pillars of NTI on every LangChain tool execution:
   5. P2P Agent Mesh & State Persistence
 
 Usage:
-    from langchain_nti import NTICallbackHandler
+    from langchain_nti import NTICallbackHandler, NTISecurityLayer
     from langchain.agents import AgentExecutor
 
     handler = NTICallbackHandler(agent_id="finance_agent")
@@ -18,7 +18,7 @@ Usage:
     executor = AgentExecutor(agent=agent, tools=tools, callbacks=[handler])
 """
 
-from langchain_nti.callback import NTICallbackHandler
+from langchain_nti.callback import NTICallbackHandler, NTISecurityLayer
 
-__version__ = "0.1.0"
-__all__ = ["NTICallbackHandler"]
+__version__ = "0.1.1"
+__all__ = ["NTICallbackHandler", "NTISecurityLayer"]
