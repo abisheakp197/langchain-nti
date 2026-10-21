@@ -84,3 +84,42 @@ Apache License 2.0. See [LICENSE](LICENSE).
 - Core SDK (crates.io): https://crates.io/crates/ube-foundation
 - Homepage: https://abisheakp197.github.io/Neutral-Trust-Infrastructure/
 - Whitepaper: [WHITEPAPER.md](./WHITEPAPER.md)
+
+## Architecture
+
+```mermaid
+graph TD
+    subgraph LC["LangChain Framework"]
+        Agent["Agent / AgentExecutor"]
+        Tool["Tool Execution"]
+    end
+
+    subgraph NTI["NTI Security Layer"]
+        OnStart["on_tool_start Interceptor"]
+        OnEnd["on_tool_end Interceptor"]
+        PolicyCheck["Capability & Policy Check"]
+        OutputCheck["Output Signature Verifier"]
+        Blocked["PermissionError<br/>(Action or Output Blocked)"]
+    end
+
+    subgraph Crypto["Crypto Engine (ube-foundation)"]
+        TrustEngine["TrustEngine<br/>(Zero-Trust Policy & Merkle Audit)"]
+        PqcKeyPair["PqcKeyPair<br/>(CRYSTALS-Dilithium5 & Kyber1024)"]
+    end
+
+    %% Tool invocation flow
+    Agent -- "1. Invokes Tool Action" --> OnStart
+    OnStart -- "2. Construct ActionRequest" --> PolicyCheck
+    PolicyCheck -- "3. Evaluate Policy" --> TrustEngine
+
+    TrustEngine -- "4a. Deny (Unauthorized)" --> Blocked
+    TrustEngine -- "4b. Allow (Capability Granted)" --> Tool
+
+    %% Tool execution & output verification flow
+    Tool -- "5. Return Tool Output" --> OnEnd
+    OnEnd -- "6. Verify Output (if enabled)" --> OutputCheck
+    OutputCheck -- "7. Verify Signature" --> PqcKeyPair
+
+    PqcKeyPair -- "8a. Tampered / Unsigned Response" --> Blocked
+    PqcKeyPair -- "8b. Valid PQC Signature" --> Agent
+```
