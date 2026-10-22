@@ -1,3 +1,5 @@
+[![NTI Verified](https://img.shields.io/badge/NTI_Score-100%2F100-brightgreen)](https://nti-registry.vercel.app)
+
 # langchain-nti
 
 **Full 5-pillar post-quantum security for LangChain agents, powered by NTI (Neutral Trust Infrastructure).**
