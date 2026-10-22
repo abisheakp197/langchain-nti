@@ -7,6 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: abisheakp197/nti-scan-action@v1.0.0
+      - uses: abisheakp197/nti-scan-action@main
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
