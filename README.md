@@ -1,4 +1,4 @@
-[![NTI Verified](https://img.shields.io/badge/NTI_Score-100%2F100-brightgreen)](https://nti-registry.vercel.app)
+[![NTI Verified](https://img.shields.io/badge/NTI_Score-92%2F100-brightgreen)](https://nti-registry.vercel.app)
 
 # langchain-nti
 
