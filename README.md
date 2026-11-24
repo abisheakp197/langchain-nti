@@ -125,3 +125,4 @@ graph TD
     PqcKeyPair -- "8a. Tampered / Unsigned Response" --> Blocked
     PqcKeyPair -- "8b. Valid PQC Signature" --> Agent
 ```
+
