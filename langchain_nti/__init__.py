@@ -18,7 +18,14 @@ Usage:
     executor = AgentExecutor(agent=agent, tools=tools, callbacks=[handler])
 """
 
+from importlib.metadata import PackageNotFoundError
+from importlib.metadata import version as _version
+
 from langchain_nti.callback import NTICallbackHandler, NTISecurityLayer
 
-__version__ = "0.1.3"
+try:
+    __version__ = _version("langchain-nti")
+except PackageNotFoundError:  # imported from a source tree that was never installed
+    __version__ = "0.0.0+unknown"
+
 __all__ = ["NTICallbackHandler", "NTISecurityLayer"]
