@@ -35,7 +35,7 @@ classifiers = [
 
 dependencies = [
     "langchain-core>=0.3.0",
-    "ube-foundation>=0.2.0",
+    "ube-foundation>=0.2.1",
 ]
 
 [project.optional-dependencies]
